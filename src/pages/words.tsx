@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ReturnToMenu from '../components/ReturnToMenu'
 import { supabase } from '../supabaseClient'
 
 type WordRow = {
@@ -92,6 +93,7 @@ export default function Words() {
 
   return (
     <div style={{ maxWidth: 400, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <ReturnToMenu />
       <h1>Översätt orden</h1>
 
       {words.map((word) => {
