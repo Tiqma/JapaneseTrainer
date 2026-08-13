@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { supabase } from './supabaseClient'
 import type { Session } from '@supabase/supabase-js'
+
 import Words from './pages/words'
 import Auth from './pages/Auth'
 import Hiragana from './pages/Hiragana'
 import TeFormTraining from './pages/TeFormTraining'
 import TaFormTraining from './pages/TaFormTraining'
 import NaiFormTraining from './pages/NaiFormTraining'
+import AddWord from './pages/AddWord'
+import WordList from './pages/WordList'
 
 function Home() {
   return (
@@ -22,9 +25,14 @@ function Home() {
       <Link to="/ta-form">Gå till Ta-form</Link>
       <br />
       <Link to="/nai-form">Gå till Nai-form</Link>
+      <br />
+      <Link to="/add-word">Gå till Lägg till ord</Link>
+      <br />
+      <Link to="/word-list">Gå till Ordlista</Link>
     </div>
   )
 }
+
 
 function App() {
   const [session, setSession] = useState<Session | null>(null)
@@ -58,6 +66,8 @@ function App() {
         <Route path="/te-form" element={<TeFormTraining />} />
         <Route path="/ta-form" element={<TaFormTraining />} />
         <Route path="/nai-form" element={<NaiFormTraining />} />
+        <Route path="/add-word" element={<AddWord />} />
+        <Route path="/word-list" element={<WordList />} />
       </Routes>
     </BrowserRouter>
   )
